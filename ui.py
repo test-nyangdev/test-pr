@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout,
                              QMessageBox, QPlainTextEdit, QHBoxLayout,
-                             QLineEdit, QComboBox)
-from PyQt5.QtGui import QIcon
+                             QLineEdit, QComboBox, QLabel)
+from PyQt5.QtGui import QIcon, QFont
 from PyQt5 import QtCore
 
 class View(QWidget):
@@ -14,6 +14,8 @@ class View(QWidget):
         self.te1 = QPlainTextEdit()
         self.te1.setReadOnly(True)
 
+        self.lbl1 = QLabel('v2.3.0', self)
+        self.lbl1.setFont(QFont('Consolas', 10))
         self.btn1 = QPushButton('Calc', self)
         self.btn2 = QPushButton('Clear', self)
 
@@ -28,13 +30,14 @@ class View(QWidget):
         self.cb = QComboBox(self)
         self.cb.addItems(['+', '-', '*', '/'])
 
+
         hbox_formular = QHBoxLayout()
         hbox_formular.addWidget(self.le1)
         hbox_formular.addWidget(self.cb)
         hbox_formular.addWidget(self.le2)
 
         hbox = QHBoxLayout()
-        hbox.addStretch(1)
+        hbox.addWidget(self.lbl1)
         hbox.addWidget(self.btn1)
         hbox.addWidget(self.btn2)
 
